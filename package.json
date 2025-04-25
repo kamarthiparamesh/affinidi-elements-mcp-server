@@ -1,0 +1,33 @@
+{
+  "name": "mcp-note-server",
+  "version": "0.1.0",
+  "description": "A Model Context Protocol server",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "mcp-note-server": "./build/index.js"
+  },
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "dev": "npx tsx src/affinidi.ts",
+    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
+    "prepare": "npm run build",
+    "watch": "tsc --watch",
+    "inspector": "npx @modelcontextprotocol/inspector build/index.js"
+  },
+  "dependencies": {
+    "@affinidi-tdk/credential-issuance-client": "^1.50.0",
+    "@affinidi-tdk/iam-client": "^1.38.0",
+    "@affinidi-tdk/login-configuration-client": "^1.40.0",
+    "@modelcontextprotocol/sdk": "^1.10.1",
+    "express": "^5.1.0",
+    "zod": "^3.24.3"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "@types/node": "^20.17.30",
+    "typescript": "^5.3.3"
+  }
+}
