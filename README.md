@@ -38,4 +38,4 @@ npm run dev
 
 The accompanying Chat App connects to this MCP server and interacts with tools dynamically—enabling users to perform actions like listing projects or issuing credentials through natural language input.
 
-Repo to this [sfdsfsdf]()
+Repo to this [https://github.com/kamarthiparamesh/affinidi-ai-chat-bot](https://github.com/kamarthiparamesh/affinidi-ai-chat-bot)

@@ -59,7 +59,7 @@ server.tool(
 
 server.tool(
     'list_login_configurations',
-    'List all the Login Configurations in the Project',
+    'List all the Login Configurations in the default Project',
     {
         apiKey: z.string().describe('API key'),
         limit: z.number().optional().describe('Maximum number of projects to fetch in a list, Default value : 100').default(10),
