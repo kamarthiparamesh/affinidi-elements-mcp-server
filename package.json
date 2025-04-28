@@ -1,17 +1,18 @@
 {
-  "name": "mcp-note-server",
+  "name": "mcp-elements-server",
   "version": "0.1.0",
   "description": "A Model Context Protocol server",
   "private": true,
   "type": "module",
   "bin": {
-    "mcp-note-server": "./build/index.js"
+    "mcp-elements-server": "./build/index.js"
   },
   "files": [
     "build"
   ],
   "scripts": {
     "dev": "npx tsx src/affinidi.ts",
+    "test": "npx tsx src/affinidi-test-client.ts",
     "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
     "prepare": "npm run build",
     "watch": "tsc --watch",
