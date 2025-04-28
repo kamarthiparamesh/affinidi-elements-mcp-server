@@ -56,12 +56,15 @@ function printHelp(): void {
     console.log('  call-tool <name> [args]    - Call a tool with optional JSON arguments');
     console.log('  list-project <uat>  - Call the list projects tool by passing user access token');
     console.log('  list-login-config <pst>  - Call the list projects tool by passing project scope token');
+    console.log('  isssue-event-vc <pst> <projectId>  - Issue event ticket VC by passing project scope token and projectId');
     console.log('  list-prompts               - List available prompts');
     console.log('  get-prompt [name] [args]   - Get a prompt with optional JSON arguments');
     console.log('  list-resources             - List available resources');
     console.log('  read-resource [id]         - Read resource');
     console.log('  help                       - Show this help');
     console.log('  quit                       - Exit the program');
+
+
 }
 
 function commandLoop(): void {
@@ -114,10 +117,22 @@ function commandLoop(): void {
                 case 'list-login-config':
                     await callTool('list_login_configurations', { apiKey: args[1] });
                     break;
+                case 'isssue-event-vc':
+                    await callTool('vc_issuance_event_ticket', {
+                        apiKey: args[1],
+                        project_id: args[2],
+                        given_name: "paramesh",
+                        last_name: "kamarthi",
+                        email: "paramesh@affinidi.com",
+                        event_name: "MCP Event",
+                        location: "Banglore",
+                        ticket_type: "regular",
+                        event_date: "2025-10-01",
+                    });
+                    break;
                 case 'list-prompts':
                     await listPrompts();
                     break;
-
                 case 'get-prompt':
                     if (args.length < 2) {
                         console.log('Usage: get-prompt <name> [args]');

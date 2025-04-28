@@ -94,6 +94,13 @@ Available tools:
   - list_login_configurations: List all the Login Configurations in the default Project
   - vc_issuance_event_ticket: Issue a verifiable credential (VC) for an event ticket. Use this tool when a user requests a ticket or VC for an event (e.g., "I want a ticket VC for Tech Event in Bangalore tomorrow"). On success, it returns a VC offer URL for the user to claim the ticket.
 
+> list-project <YOUR USER ACCESS TOKEN>
+Calling tool 'list_project' with args: {
+  apiKey: 'eyJh...'
+}
+Tool result:
+  List of projects => [{"id":"0be8df01-6099-4e1e-bcb6-2dc3562d72fd","name":"Test Project","description":"","createdAt":"2024-07-16T12:07:07.805Z","updatedAt":"2024-07-16T12:07:07.805Z","ownerId":"user/349f037d-c10c-4e81-a168-1222333"}]
+
 > list-login-config <YOUR PROJECT SCOPE TOKEN>
 Calling tool 'list_login_configurations' with args: {
   apiKey: 'ey....'
@@ -101,10 +108,22 @@ Calling tool 'list_login_configurations' with args: {
 Tool result:
   List of Login Configurations => [{"ari":"ari:identity:ap-southeast-1:801a212a-90b1-4463-bfb3-5235181d477d:login_configuration/3b1433f3-1886-4a34-9072-7130ef3c3fbb","projectId":"801a212a-90b1-4463-bfb3-5235181d477d","configurationId":"3b1433f3-1886-4a34-9072-7130ef3c3fbb","name":"Eventi","redirectUris":["http://localhost:3000/api/auth/callback/affinidi"],"auth":{"clientId":"5619f48e-bca8-4529-ace3-96ebaafc2f04","issuer":"https://801a212a-90b1-4463-bfb3-5235181d477d.apse1.login.affinidi.io"},"tokenEndpointAuthMethod":"client_secret_post","description":"description#733123","createdAt":"2024-09-17T10:17:08.755Z","modifiedAt":"2024-09-17T10:17:08.755Z","createdBy":"user/349f037d-c10c-4e81-a168-f1b273c287e3","modifiedBy":"user/349f037d-c10c-4e81-a168-f1b273c287e3","creationDate":"2024-09-17T10:17:09Z","failOnMappingConflict":true,"clientMetadata":{"name":"Eventi","logo":"https://login.affinidi.com/default-client-logo.svg","domainVerified":false,"origin":"http://localhost:3000"}}]
 
-> list-project <YOUR USER ACCESS TOKEN>
-Calling tool 'list_project' with args: {
-  apiKey: 'eyJh...'
+> isssue-event-vc <YOUR PROJECT SCOPE TOKEN> <YOUR PROJECT ID>
+Calling tool 'vc_issuance_event_ticket' with args: {
+  apiKey: 'eyJ0eX...',
+  project_id: '801a212a-90b1-4463-bfb3-5235181d477d',
+  given_name: 'paramesh',
+  last_name: 'kamarthi',
+  email: 'paramesh@affinidi.com',
+  event_name: 'MCP Event',
+  location: 'Banglore',
+  ticket_type: 'regular',
+  event_date: '2025-10-01'
 }
 Tool result:
-  List of projects => [{"id":"0be8df01-6099-4e1e-bcb6-2dc3562d72fd","name":"Test Project","description":"","createdAt":"2024-07-16T12:07:07.805Z","updatedAt":"2024-07-16T12:07:07.805Z","ownerId":"user/349f037d-c10c-4e81-a168-1222333"}]
+  **Event ticket VC offer ready to claim!**
+  Click the link below and enter the transaction code to complete the process:
+  🔗 [Claim your Event Ticket VC](https://vault.affinidi.com/claim?credential_offer_uri=https://801a212a-90b1-4463-bfb3-5235181d477d.apse1.issuance.affinidi.io/offers/d620285d-a993-4ae5-a969-c3861ecbd414)
+  🔒 **Transaction Code:** `539848`
+
 ```
